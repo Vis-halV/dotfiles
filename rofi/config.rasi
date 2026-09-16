@@ -1,0 +1,127 @@
+configuration {
+    modi: "drun";
+    show-icons: false;
+    drun-display-format: "{name}";
+}
+
+* {
+    font: "JetBrainsMono Nerd Font 7";
+
+    /* ───────── TEXT ───────── */
+
+    fg: #c8d4cc;
+    fg-muted: #75877b;
+
+    /* Soft sage */
+    accent: #91aa99;
+    accent-light: #e0e9e3;
+
+
+    /* ───────── LIQUID GLASS ───────── */
+
+    /* Deep forest glass */
+    glass: rgba(7, 17, 12, 0.62);
+
+    /* Frosted search surface */
+    input-bg: rgba(30, 48, 37, 0.48);
+
+    /* Soft sage glass highlight */
+    selected-bg: rgba(145, 170, 153, 0.16);
+
+    /* Very subtle glass edge */
+    border-color: rgba(190, 215, 198, 0.16);
+}
+
+window {
+    width: 200px;
+
+    background-color: @glass;
+
+    border: 1px;
+    border-color: @border-color;
+
+    border-radius: 14px;
+}
+
+mainbox {
+    padding: 6px;
+    spacing: 5px;
+
+    background-color: transparent;
+
+    children: [
+        inputbar,
+        listview
+    ];
+}
+
+inputbar {
+    padding: 6px 7px;
+
+    background-color: @input-bg;
+
+    border: 1px;
+    border-color: rgba(180, 205, 188, 0.07);
+
+    border-radius: 9px;
+
+    children: [
+        prompt,
+        entry
+    ];
+}
+
+prompt {
+    padding: 0px 4px 0px 0px;
+    background-color: transparent;
+    text-color: @accent;
+}
+
+entry {
+    background-color: transparent;
+
+    text-color: @fg;
+
+    placeholder: "Search...";
+    placeholder-color: @fg-muted;
+}
+
+listview {
+    lines: 7;
+    spacing: 2px;
+
+    background-color: transparent;
+
+    scrollbar: false;
+}
+
+element {
+    padding: 5px 7px;
+
+    background-color: transparent;
+
+    border: 0px;
+    border-radius: 8px;
+}
+
+element normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element alternate {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element selected {
+    background-color: @selected-bg;
+
+    text-color: @accent-light;
+}
+
+element-text {
+    background-color: transparent;
+
+    text-color: inherit;
+}

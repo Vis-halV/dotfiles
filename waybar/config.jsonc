@@ -1,0 +1,142 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "margin-top": 4,
+    "margin-left": 8,
+    "margin-right": 8,
+    "spacing": 0,
+    "modules-center": [
+        "custom/uptime",
+        "hyprland/workspaces"
+    ],
+    "modules-left": [
+        "custom/power-profile",
+        "clock"
+    ],
+    "modules-right": [
+        "battery",
+        "backlight",
+        "custom/wifi-toggle",
+        "bluetooth",
+        "pulseaudio"
+    ],
+    // ─────────────────────────────────────
+    // HYPRLAND WORKSPACES
+    // ─────────────────────────────────────
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "disable-scroll": false,
+        "all-outputs": false,
+        "sort-by-number": true,
+        "persistent-only": false,
+        "on-click": "activate"
+    },
+    // ─────────────────────────────────────
+    // UPTIME
+    // ─────────────────────────────────────
+    "custom/uptime": {
+        "exec": "uptime -s | xargs -I{} date -d '{}' +%s | awk '{print int((systime()-$1)/3600) \":\" sprintf(\"%02d\", int((systime()-$1)%3600/60))}'",
+        "interval": 30,
+        "format": "{}",
+        "tooltip": true,
+        "tooltip-format": "System uptime"
+    },
+    // ─────────────────────────────────────
+    // BATTERY
+    // ─────────────────────────────────────
+    "battery": {
+        "bat": "BAT0",
+        "adapter": "ADP1",
+        "interval": 10,
+        "format": "{icon}",
+        "format-charging": "󰂄",
+        "format-icons": [
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ],
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "tooltip": true,
+        "tooltip-format": "Battery: {capacity}%"
+    },
+    // ─────────────────────────────────────
+    // BRIGHTNESS
+    // ─────────────────────────────────────
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "format-icons": [
+            "󰃞",
+            "󰃟",
+            "󰃠"
+        ],
+        "scroll-step": 5,
+        "on-scroll-up": "brightnessctl -d intel_backlight set +5%",
+        "on-scroll-down": "current=$(brightnessctl -d intel_backlight g); max=$(brightnessctl -d intel_backlight m); [ $((current * 100 / max)) -gt 10 ] && brightnessctl -d intel_backlight set 5%-",
+        "tooltip": true,
+        "tooltip-format": "Screen brightness: {percent}%"
+    },
+    // ─────────────────────────────────────
+    // POWER PROFILE
+    // ─────────────────────────────────────
+    "custom/power-profile": {
+        "exec": "~/.config/waybar/scripts/power-profile.sh",
+        "return-type": "json",
+        "interval": 1,
+        "format": "{}",
+        "on-click": "profile=$(powerprofilesctl get); case \"$profile\" in balanced) powerprofilesctl set performance;; performance) powerprofilesctl set power-saver;; power-saver) powerprofilesctl set balanced;; esac; pkill -RTMIN+8 waybar",
+        "signal": 8,
+        "tooltip": true
+    },
+    // ─────────────────────────────────────
+    // CLOCK
+    // ─────────────────────────────────────
+    "clock": {
+        "interval": 1,
+        "format": "{:%H:%M %b %d}",
+        "tooltip": false
+    },
+    "custom/wifi-toggle": {
+        "exec": "if [ \"$(nmcli radio wifi)\" = \"enabled\" ]; then echo '󰤨'; else echo '󰤭'; fi",
+        "interval": 2,
+        "on-click": "bash ~/.config/rofi/wifi.sh",
+        "tooltip": false
+    },
+    "bluetooth": {
+        "format": "󰂯",
+        "format-disabled": "󰂲",
+        "format-off": "󰂲",
+        "format-on": "󰂯",
+        "format-connected": "󰂱",
+        "tooltip-format": "Bluetooth\n{status}\n{num_connections} connected",
+        "on-click": "bash ~/.config/rofi/bluetooth.sh",
+        "on-click-right": "bluetoothctl power off",
+        "on-click-middle": "bluetoothctl power on"
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "󰖁",
+        "format-icons": {
+            "default": [
+                "󰕿",
+                "󰖀",
+                "󰕾"
+            ]
+        },
+        "scroll-step": 5,
+        "on-click": "bash ~/.config/rofi/audio.sh",
+        "tooltip-format": "{desc}\nVolume: {volume}%"
+    }
+}

@@ -1,0 +1,365 @@
+/* ============================================================
+   SAGE GLASS
+   Hyprland + Waybar
+   Shared visual language with ~/.config/rofi/glass.rasi
+   ============================================================ */
+
+
+/* ============================================================
+   COMMON GLASS PALETTE
+   ============================================================ */
+
+@define-color glass rgba(185, 210, 192, 0.82);
+@define-color glass-hover rgba(185, 210, 192, 0.94);
+@define-color glass-active rgba(143, 174, 153, 0.75);
+
+@define-color text #ffffff;
+@define-color text-muted rgba(255, 255, 255, 0.65);
+
+@define-color sage #ffffff;
+@define-color sage-light #ffffff;
+@define-color sage-dark rgba(255, 255, 255, 0.45);
+
+@define-color border rgba(255, 255, 255, 0.20);
+
+@define-color warning #f5e6a8;
+@define-color critical #ff8f8f;
+
+
+
+/* ============================================================
+   GLOBAL
+   ============================================================ */
+
+* {
+    border: none;
+    border-radius: 0;
+
+    font-family:
+        "JetBrainsMono Nerd Font",
+        "Symbols Nerd Font",
+        monospace;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    min-height: 0;
+}
+
+
+/* ============================================================
+   WAYBAR
+   ============================================================ */
+
+window#waybar {
+    background: transparent;
+    color: @text;
+}
+
+
+/* ============================================================
+   GLASS GROUPS
+   ============================================================ */
+
+.modules-left,
+.modules-center,
+.modules-right {
+
+    background: @glass;
+
+    border: 1px solid @border;
+    border-radius: 13px;
+
+    margin-top: 4px;
+    margin-bottom: 4px;
+
+    padding: 0 3px;
+
+    transition:
+        background 180ms ease,
+        border-color 180ms ease;
+}
+
+
+/* ============================================================
+   LEFT
+   ============================================================ */
+
+.modules-left {
+    margin-left: 8px;
+}
+
+
+/* ============================================================
+   CENTER
+   ============================================================ */
+
+.modules-center {}
+
+
+/* ============================================================
+   RIGHT
+   ============================================================ */
+
+.modules-right {
+    margin-right: 8px;
+}
+
+
+/* ============================================================
+   GLASS HOVER
+   ============================================================ */
+
+.modules-left:hover,
+.modules-center:hover,
+.modules-right:hover {
+    background: @glass-hover;
+    border-color: rgba(16, 23, 16, 0.20);
+}
+
+
+/* ============================================================
+   MODULE BASE
+   ============================================================ */
+
+#custom-power-profile,
+#clock,
+#custom-uptime,
+#workspaces,
+#battery,
+#backlight,
+#custom-wifi-toggle,
+#bluetooth,
+#pulseaudio {
+
+    background: transparent;
+
+    color: @text;
+
+    padding: 0 8px;
+    margin: 0;
+
+    transition:
+        color 150ms ease,
+        background 150ms ease;
+}
+
+
+/* ============================================================
+   POWER PROFILE
+   ============================================================ */
+
+#custom-power-profile {
+    color: @sage;
+}
+
+#custom-power-profile:hover {
+    color: @sage-light;
+}
+
+
+/* ============================================================
+   CLOCK
+   ============================================================ */
+
+#clock {
+    color: @text;
+    font-weight: 600;
+}
+
+#clock:hover {
+    color: @sage-light;
+}
+
+
+/* ============================================================
+   UPTIME
+   ============================================================ */
+
+#custom-uptime {
+    color: @text-muted;
+}
+
+#custom-uptime:hover {
+    color: @sage;
+}
+
+
+/* ============================================================
+   WORKSPACES
+   ============================================================ */
+
+#workspaces {
+    padding: 0 3px;
+}
+
+
+/* Individual workspace */
+
+#workspaces button {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.65);
+
+    padding: 0 7px;
+    margin: 0 1px;
+    min-width: 16px;
+
+    border-radius: 8px;
+
+    transition:
+        background 150ms ease,
+        color 150ms ease;
+}
+
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+}
+
+
+/* Active */
+
+#workspaces button.active {
+    background: rgba(143, 174, 153, 0.75);
+    color: #ffffff;
+}
+
+
+/* Empty */
+
+#workspaces button.empty {
+    color: @sage-dark;
+}
+
+
+/* Visible */
+
+#workspaces button.visible {
+    color: @sage;
+}
+
+
+/* Urgent */
+
+#workspaces button.urgent {
+
+    background: rgba(155, 79, 73, 0.16);
+
+    color: @critical;
+}
+
+
+/* ============================================================
+   BATTERY
+   ============================================================ */
+
+#battery {
+    color: @text;
+}
+
+#battery:hover {
+    color: @sage-light;
+}
+
+#battery.charging {
+    color: @sage;
+}
+
+#battery.warning {
+    color: @warning;
+}
+
+#battery.critical {
+    color: @critical;
+}
+
+
+/* ============================================================
+   BRIGHTNESS
+   ============================================================ */
+
+#backlight {
+    color: @text;
+}
+
+#backlight:hover {
+    color: @sage;
+}
+
+
+/* ============================================================
+   BLUETOOTH
+   ============================================================ */
+
+#bluetooth {
+    color: @text;
+}
+
+#bluetooth:hover {
+    color: @sage-light;
+}
+
+#bluetooth.disabled {
+    color: @sage-dark;
+}
+
+#bluetooth.connected {
+    color: @sage;
+}
+
+
+/* ============================================================
+   AUDIO
+   ============================================================ */
+
+#pulseaudio {
+    color: @text;
+}
+
+#pulseaudio:hover {
+    color: @sage-light;
+}
+
+#pulseaudio.muted {
+    color: @sage-dark;
+}
+
+
+/* ============================================================
+   WIFI
+   ============================================================ */
+
+#custom-wifi-toggle {
+    color: @text;
+    padding: 0 7px;
+}
+
+#custom-wifi-toggle:hover {
+    color: @sage-light;
+}
+
+#custom-wifi-toggle:active {
+    color: @sage;
+}
+
+
+/* ============================================================
+   TOOLTIP
+   ============================================================ */
+
+tooltip {
+    background: #b9d2c0;
+
+    border: 1px solid rgba(16, 23, 16, 0.14);
+
+    border-radius: 10px;
+
+    padding: 7px 10px;
+
+    box-shadow: none;
+}
+
+tooltip label {
+    color: @text;
+    font-size: 10px;
+}
