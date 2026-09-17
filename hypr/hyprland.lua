@@ -55,6 +55,9 @@ hl.on("hyprland.start", function()
     -- Bluetooth tray
     hl.exec_cmd("blueman-applet")
 
+    -- Lock Screen/Something
+    hl.exec_cmd("hypridle")
+
 end)
 
 -------------------------------
@@ -341,17 +344,6 @@ hl.bind(mainMod .. " + up",
 
 hl.bind(mainMod .. " + down",
     hl.dsp.focus({ direction = "down" }))
-
-
--- Vim-style navigation
-hl.bind(mainMod .. " + H",
-    hl.dsp.focus({ direction = "left" }))
-
-hl.bind(mainMod .. " + L",
-    hl.dsp.focus({ direction = "right" }))
-
-hl.bind(mainMod .. " + K",
-    hl.dsp.focus({ direction = "up" }))
 
 -- NOTE:
 -- J is reserved for togglesplit above.
@@ -910,3 +902,28 @@ hl.bind("SUPER + M", function()
     end
 
 end)
+
+
+-----------------------------
+---- LOCK / POWER ----------
+-----------------------------
+
+local lock_cmd = [[ln -sf "$(awww query | sed -n 's/.*currently displaying: image: //p' | tr -d '[:space:]')" /home/visanth/.cache/current_wallpaper.png && sleep 0.1 && hyprlock]]
+
+-- Super + L = Update wallpaper symlink + Lock
+hl.bind(
+    mainMod .. " + L",
+    hl.dsp.exec_cmd(lock_cmd)
+)
+
+-- Super + Shift + L = Suspend
+hl.bind(
+    mainMod .. " + SHIFT + L",
+    hl.dsp.exec_cmd("systemctl suspend")
+)
+
+-- Super + X = Power menu
+hl.bind(
+    mainMod .. " + X",
+    hl.dsp.exec_cmd("~/.config/rofi/power-menu.sh")
+)

@@ -1,0 +1,86 @@
+configuration {
+    show-icons: false;
+}
+
+* {
+    font: "JetBrainsMono Nerd Font 9";
+
+    /* TEXT */
+    fg: #c8d4cc;
+    fg-muted: #75877b;
+
+    /* SAGE */
+    accent: #91aa99;
+    accent-light: #e0e9e3;
+
+    /* GLASS */
+    glass: rgba(7, 17, 12, 0.72);
+
+    /* SELECTED */
+    selected-bg: rgba(145, 170, 153, 0.16);
+
+    /* BORDER */
+    border-color: rgba(190, 215, 198, 0.16);
+}
+
+window {
+    width: 190px;
+
+    background-color: @glass;
+
+    border: 1px;
+    border-color: @border-color;
+
+    border-radius: 14px;
+}
+
+mainbox {
+    padding: 7px;
+    spacing: 4px;
+
+    background-color: transparent;
+
+    children: [
+        listview
+    ];
+}
+
+listview {
+    lines: 5;
+    columns: 1;
+
+    spacing: 3px;
+
+    background-color: transparent;
+
+    scrollbar: false;
+}
+
+element {
+    padding: 8px 10px;
+
+    background-color: transparent;
+
+    border: 0px;
+    border-radius: 9px;
+}
+
+element normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element alternate {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element selected {
+    background-color: @selected-bg;
+    text-color: @accent-light;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+}
