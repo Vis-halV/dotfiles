@@ -109,10 +109,11 @@
         "tooltip": false
     },
     "custom/wifi-toggle": {
-        "exec": "if [ \"$(nmcli radio wifi)\" = \"enabled\" ]; then echo '󰤨'; else echo '󰤭'; fi",
-        "interval": 2,
+        "exec": "~/.config/waybar/scripts/wifi-status.sh",
+        "return-type": "json",
+        "interval": 3,
         "on-click": "bash ~/.config/rofi/wifi.sh",
-        "tooltip": false
+        "tooltip": true
     },
     "bluetooth": {
         "format": "󰂯",

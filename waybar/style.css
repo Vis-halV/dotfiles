@@ -324,7 +324,6 @@ window#waybar {
     color: @sage-dark;
 }
 
-
 /* ============================================================
    WIFI
    ============================================================ */
@@ -338,8 +337,16 @@ window#waybar {
     color: @sage-light;
 }
 
-#custom-wifi-toggle:active {
+#custom-wifi-toggle.connected {
     color: @sage;
+}
+
+#custom-wifi-toggle.disconnected {
+    color: @warning;
+}
+
+#custom-wifi-toggle.disabled {
+    color: @sage-dark;
 }
 
 
@@ -362,4 +369,23 @@ tooltip {
 tooltip label {
     color: @text;
     font-size: 10px;
+}
+
+/* ============================================================
+TOOLTIP
+============================================================ */
+
+tooltip {
+    background: rgba(185, 210, 192, 0.94);
+    border-radius: 8px;
+    padding: 8px 8px;
+}
+
+tooltip label {
+    color: #000000;
+    font-family:
+        "JetBrainsMono Nerd Font",
+        monospace;
+    font-size: 8px;
+    font-weight: 200;
 }
