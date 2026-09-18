@@ -1,0 +1,152 @@
+/* MOUSEPAD — FOGGY SAGE GLASS */
+
+textview,
+textview text,
+.view,
+text {
+    background-color: rgba(184, 208, 190, 0.35);
+    color: #101710;
+}
+
+textview text selection {
+    background-color: #6f9079;
+    color: #ffffff;
+}
+
+window {
+    background-color: rgba(184, 208, 190, 0.65);
+    color: #101710;
+}
+
+menubar {
+    background-color: rgba(184, 208, 190, 0.35);
+    color: #101710;
+}
+
+menubar>menuitem {
+    color: #101710;
+}
+
+menubar>menuitem:hover {
+    background-color: rgba(111, 144, 121, 0.45);
+    color: #101710;
+}
+
+toolbar {
+    background-color: rgba(184, 208, 190, 0.30);
+    color: #101710;
+}
+
+statusbar {
+    background-color: rgba(184, 208, 190, 0.35);
+    color: #385842;
+}
+
+scrollbar {
+    background-color: transparent;
+}
+
+scrollbar slider {
+    background-color: rgba(82, 116, 93, 0.55);
+    border-radius: 10px;
+}
+
+scrollbar slider:hover {
+    background-color: rgba(82, 116, 93, 0.80);
+}
+
+notebook {
+    background-color: transparent;
+}
+
+notebook tab {
+    background-color: rgba(184, 208, 190, 0.30);
+    color: #53635a;
+}
+
+notebook tab:checked {
+    background-color: rgba(111, 144, 121, 0.55);
+    color: #101710;
+}
+
+button {
+    background-color: rgba(184, 208, 190, 0.35);
+    color: #101710;
+    border-color: rgba(82, 116, 93, 0.35);
+}
+
+button:hover {
+    background-color: rgba(111, 144, 121, 0.50);
+}
+
+entry {
+    background-color: rgba(220, 230, 223, 0.45);
+    color: #101710;
+    border-color: rgba(82, 116, 93, 0.40);
+}
+
+tooltip {
+    background-color: rgba(16, 23, 16, 0.90);
+    color: #dce6df;
+}
+
+label {
+    color: #101710;
+}
+
+textview {
+    caret-color: #111812;
+}
+
+menu {
+    background-color: rgba(184, 208, 190, 0.92);
+    color: #101710;
+    border: 1px solid rgba(82, 116, 93, 0.45);
+    border-radius: 8px;
+    padding: 5px;
+}
+
+menu menuitem {
+    background-color: transparent;
+    color: #101710;
+    padding: 6px 10px;
+    border-radius: 5px;
+}
+
+menu menuitem:hover {
+    background-color: #6f9079;
+    color: #ffffff;
+}
+
+menu menuitem:disabled {
+    color: #53635a;
+}
+
+menu separator {
+    background-color: rgba(82, 116, 93, 0.30);
+    min-height: 1px;
+    margin: 4px 8px;
+}
+
+menu menuitem accelerator {
+    color: #53635a;
+}
+
+menu menuitem arrow {
+    color: #385842;
+}
+
+popover,
+popover.background {
+    background-color: rgba(184, 208, 190, 0.92);
+    color: #101710;
+}
+
+popover menuitem {
+    color: #101710;
+}
+
+popover menuitem:hover {
+    background-color: #6f9079;
+    color: #ffffff;
+}

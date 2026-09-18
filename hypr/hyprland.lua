@@ -927,3 +927,17 @@ hl.bind(
     mainMod .. " + X",
     hl.dsp.exec_cmd("~/.config/rofi/power-menu.sh")
 )
+
+-----------------------------
+---- MOUSEPAD GLASS ---------
+-----------------------------
+
+hl.window_rule({
+    name = "mousepad-glass",
+
+    match = {
+        class = "^mousepad$",
+    },
+
+    opacity = 0.85,
+})
